@@ -1,0 +1,53 @@
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  padding: 0;
+  background: url('programming-code-coding-hacker-background-programming-code-icon-made-with-binary-code_127544-815-1.avif') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+header {
+  background: rgba(13, 17, 23, 0.85);
+  padding: 40px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+}
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+h2 {
+  border-bottom: 2px solid #58a6ff;
+  padding-bottom: 10px;
+}
+.about-media img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+.about-media img:hover {
+  transform: scale(1.02);
+}
+ul {
+  list-style: square;
+  padding-left: 20px;
+}
+footer {
+  background: rgba(13, 17, 23, 0.85);
+  text-align: center;
+  padding: 20px;
+}
+
+.header-media img {
+  margin-top: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
