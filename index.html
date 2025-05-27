@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreelekh Ingle's Personal Website</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #ffffff;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    body.light-mode {
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    body, html {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    nav ul li a,
+    footer {
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    nav ul li a.glow {
+      box-shadow: 0 0 10px #58a6ff, 0 0 20px #58a6ff;
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      color: #58a6ff;
+      border: 2px solid #58a6ff;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      z-index: 2000;
+    }
+
+    .theme-toggle:hover {
+      background: #58a6ff;
+      color: black;
+      box-shadow: 0 0 15px #58a6ff;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      0% { border-color: transparent }
+      50% { border-color: #58a6ff }
+      100% { border-color: transparent }
+    }
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #58a6ff;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 1s step-end infinite;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(88, 166, 255, 0.2);
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+    html {
+      scroll-behavior: smooth;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Fira Code', monospace;
+    }
+    section {
+      min-height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      padding: 10px;
+      background: #0d1117;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #c9d1d9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #58a6ff;
+    }
+    header {
+      text-align: center;
+      background: #1e1e1e; color: #ffffff;
+      padding: 30px 10px;
+    }
+    .about-section {
+      background-color: #161b22;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .about-text {
+      flex: 1 1 60%;
+    }
+    .about-media {
+      flex: 1 1 35%;
+      text-align: center;
+    }
+    .about-media img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .project {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f8f8f8;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d1117;
+      color: #c9d1d9;
+    }
+    section:nth-of-type(even) {
+      background-color: #0d1117;
+    }
+    section:nth-of-type(odd) {
+      background-color: #1e1e1e;
+    }
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .about-text, .about-media {
+        flex: 1 1 100%;
+      }
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>Shreelekh Ingle's Personal Website</h1>
+    <p class="typing">14-year-old tech enthusiast | Coder | Dreamer</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about" class="glow">About</a></li>
+      <li><a href="#projects" class="glow">Projects</a></li>
+      <li><a href="#contact" class="glow">Contact</a></li>
+      <li><a href="#social-media" class="glow">Social Media</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="fade-in" class="about-section">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>Hello! I'm <strong>Shreelekh Ingle</strong>, a passionate 14-year-old tech enthusiast from Nagpur, Maharashtra, India.</p>
+      <p>I'm currently a student at St. Xavier High School in Nagpur. I enjoy coding, web development, AI, robotics, game development, and mobile apps.</p>
+      <p>I aspire to become a top software engineer and one day start my own tech company.</p>
+    </div>
+    <div class="about-media">
+      <img src="shreelekh-horse.jpg" alt="Shreelekh riding a horse" />
+    </div>
+  </section>
+
+  
+    <section id="projects" class="fade-in">
+    <div style="text-align:center; margin-bottom: 20px;">
+      <button onclick="filterProjects('all')" class="glow">All</button>
+      <button onclick="filterProjects('html')" class="glow">HTML/CSS</button>
+      <button onclick="filterProjects('js')" class="glow">JavaScript</button>
+      <button onclick="filterProjects('api')" class="glow">API</button>
+    </div>
+    
+    <h2>Projects</h2>
+    <div class="project html" style="color:#00ffff; cursor:pointer;">
+      <h3 data-code="portfolio">Personal Portfolio Website</h3>
+      <p>A responsive website to showcase my bio, skills, and projects.</p>
+      <p><strong>Technologies:</strong> HTML, CSS</p>
+    </div>
+    <div class="project js" style="color:#00ffff; cursor:pointer;">
+      <h3 data-code="calculator">Simple Calculator</h3>
+      <p>A clean UI calculator that performs basic arithmetic operations.</p>
+      <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+    </div>
+    <div class="project api" style="color:#00ffff; cursor:pointer;">
+      <h3 data-code="weather">Weather App</h3>
+      <p>Real-time weather app using OpenWeather API for live data.</p>
+      <p><strong>Technologies:</strong> HTML, CSS, JavaScript, API</p>
+    </div>
+    <div class="project js" style="color:#00ffff; cursor:pointer;">
+      <h3 data-code="quiz">Quiz Game</h3>
+      <p>An interactive quiz that tracks scores and gives feedback.</p>
+      <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+    </div>
+    <div class="project js" style="color:#00ffff; cursor:pointer;">
+      <h3 data-code="todo">To-Do List</h3>
+      <p>A task management app with add/delete/complete features.</p>
+      <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    
+    <form id="contact-form">
+      <label>Name:</label>
+      <input type="text" name="name" required pattern="[A-Za-z\s]{2,}" title="Please enter at least 2 alphabetic characters.">
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Message:</label>
+      <textarea name="message" rows="5" required minlength="10" title="Message must be at least 10 characters."></textarea>
+      <input type="submit" value="Send">
+    </form>
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", function(e) {
+        if (!this.checkValidity()) {
+          alert("Please fill out the form correctly.");
+          e.preventDefault();
+        } else {
+          alert("Thanks for your message!");
+        }
+      });
+    </script>
+    
+      <label>Name:</label>
+      <input type="text" name="name" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <label>Message:</label>
+      <textarea name="message" rows="5" required></textarea>
+      <input type="submit" value="Send">
+    </form>
+    <p><strong>Phone:</strong> 9266113105</p>
+    <p><strong>Email:</strong> Codershreelekh1@gmail.com</p>
+  </section>
+
+  <section id="social-media" class="fade-in">
+    <h2>Social Media</h2>
+    <a href="https://www.instagram.com/shreelekh.py?igsh=dDI4aHB6ajNqOTk4" target="_blank">Follow me on Instagram</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shreelekh Ingle. All rights reserved.</p>
+  
+    <!-- Modal viewer -->
+    <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+        background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 2000;">
+      <div style="background:#fff; color:#000; padding:20px; border-radius:10px; max-width:600px; width:90%; position:relative;">
+        <span onclick="document.getElementById('modal').style.display='none'" 
+              style="position:absolute; top:10px; right:20px; cursor:pointer; font-weight:bold;">X</span>
+        
+    <div id="gallery" style="text-align:center; margin-bottom:20px;">
+      <img src="https://via.placeholder.com/300x200?text=Screenshot+1" style="max-width:100%; margin:10px;">
+      <img src="https://via.placeholder.com/300x200?text=Screenshot+2" style="max-width:100%; margin:10px;">
+    </div>
+    <pre><code class="language-javascript" id="code-preview">
+
+// Example Project Code Snippet
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+console.log(greet("Shreelekh"));
+        </code></pre>
+      </div>
+    </div>
+
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js">
+      // Modal trigger
+      const codeSnippets = {
+        portfolio: `<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Portfolio</title></head>
+  <body><h1>Hello World</h1></body>
+</html>`,
+        calculator: `// calculator.js
+function add(a, b) {
+  return a + b;
+}`,
+        weather: `// weather.js
+fetch('https://api.openweathermap.org/data')
+  .then(res => res.json())
+  .then(data => console.log(data));`,
+        quiz: `// quiz.js
+let score = 0;
+function answer(correct) {
+  if (correct) score++;
+}`,
+        todo: `// todo.js
+const tasks = [];
+function addTask(task) {
+  tasks.push(task);
+}`
+      };
+
+      document.querySelectorAll('.project h3').forEach(h3 => {
+        h3.addEventListener('click', (e) => {
+          const codeKey = e.target.getAttribute('data-code');
+          document.getElementById('code-preview').textContent = codeSnippets[codeKey] || "// Code not found.";
+          Prism.highlightAll(); // refresh Prism highlighting
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', () => {
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js">
+      // Modal trigger
+      const codeSnippets = {
+        portfolio: `<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Portfolio</title></head>
+  <body><h1>Hello World</h1></body>
+</html>`,
+        calculator: `// calculator.js
+function add(a, b) {
+  return a + b;
+}`,
+        weather: `// weather.js
+fetch('https://api.openweathermap.org/data')
+  .then(res => res.json())
+  .then(data => console.log(data));`,
+        quiz: `// quiz.js
+let score = 0;
+function answer(correct) {
+  if (correct) score++;
+}`,
+        todo: `// todo.js
+const tasks = [];
+function addTask(task) {
+  tasks.push(task);
+}`
+      };
+
+      document.querySelectorAll('.project h3').forEach(h3 => {
+        h3.addEventListener('click', (e) => {
+          const codeKey = e.target.getAttribute('data-code');
+          document.getElementById('code-preview').textContent = codeSnippets[codeKey] || "// Code not found.";
+          Prism.highlightAll(); // refresh Prism highlighting
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', () => {
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+    </script>
+    
+    </footer>
+    
+
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    
+      // Modal trigger
+      const codeSnippets = {
+        portfolio: `<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Portfolio</title></head>
+  <body><h1>Hello World</h1></body>
+</html>`,
+        calculator: `// calculator.js
+function add(a, b) {
+  return a + b;
+}`,
+        weather: `// weather.js
+fetch('https://api.openweathermap.org/data')
+  .then(res => res.json())
+  .then(data => console.log(data));`,
+        quiz: `// quiz.js
+let score = 0;
+function answer(correct) {
+  if (correct) score++;
+}`,
+        todo: `// todo.js
+const tasks = [];
+function addTask(task) {
+  tasks.push(task);
+}`
+      };
+
+      document.querySelectorAll('.project h3').forEach(h3 => {
+        h3.addEventListener('click', (e) => {
+          const codeKey = e.target.getAttribute('data-code');
+          document.getElementById('code-preview').textContent = codeSnippets[codeKey] || "// Code not found.";
+          Prism.highlightAll(); // refresh Prism highlighting
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', () => {
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+    </script>
+    
+    
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    
+      // Modal trigger
+      const codeSnippets = {
+        portfolio: `<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Portfolio</title></head>
+  <body><h1>Hello World</h1></body>
+</html>`,
+        calculator: `// calculator.js
+function add(a, b) {
+  return a + b;
+}`,
+        weather: `// weather.js
+fetch('https://api.openweathermap.org/data')
+  .then(res => res.json())
+  .then(data => console.log(data));`,
+        quiz: `// quiz.js
+let score = 0;
+function answer(correct) {
+  if (correct) score++;
+}`,
+        todo: `// todo.js
+const tasks = [];
+function addTask(task) {
+  tasks.push(task);
+}`
+      };
+
+      document.querySelectorAll('.project h3').forEach(h3 => {
+        h3.addEventListener('click', (e) => {
+          const codeKey = e.target.getAttribute('data-code');
+          document.getElementById('code-preview').textContent = codeSnippets[codeKey] || "// Code not found.";
+          Prism.highlightAll(); // refresh Prism highlighting
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', () => {
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+    </script>
+    
+    
+    <script>
+      // Theme toggle remains the same
+      function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+      }
+
+      // Scroll fade-in observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      // Project filtering
+      function filterProjects(category) {
+        const projects = document.querySelectorAll('.project');
+        projects.forEach(project => {
+          if (category === 'all' || project.classList.contains(category)) {
+            project.style.display = 'block';
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      }
+    
+      // Modal trigger
+      const codeSnippets = {
+        portfolio: `<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head><title>Portfolio</title></head>
+  <body><h1>Hello World</h1></body>
+</html>`,
+        calculator: `// calculator.js
+function add(a, b) {
+  return a + b;
+}`,
+        weather: `// weather.js
+fetch('https://api.openweathermap.org/data')
+  .then(res => res.json())
+  .then(data => console.log(data));`,
+        quiz: `// quiz.js
+let score = 0;
+function answer(correct) {
+  if (correct) score++;
+}`,
+        todo: `// todo.js
+const tasks = [];
+function addTask(task) {
+  tasks.push(task);
+}`
+      };
+
+      document.querySelectorAll('.project h3').forEach(h3 => {
+        h3.addEventListener('click', (e) => {
+          const codeKey = e.target.getAttribute('data-code');
+          document.getElementById('code-preview').textContent = codeSnippets[codeKey] || "// Code not found.";
+          Prism.highlightAll(); // refresh Prism highlighting
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.project').forEach(project => {
+        project.addEventListener('click', () => {
+          const gallerySets = {
+        portfolio: [
+          "https://via.placeholder.com/300x200?text=Portfolio+1",
+          "https://via.placeholder.com/300x200?text=Portfolio+2"
+        ],
+        calculator: [
+          "https://via.placeholder.com/300x200?text=Calculator+UI",
+          "https://via.placeholder.com/300x200?text=Calculator+Code"
+        ],
+        weather: [
+          "https://via.placeholder.com/300x200?text=Weather+1",
+          "https://via.placeholder.com/300x200?text=Weather+2"
+        ],
+        quiz: [
+          "https://via.placeholder.com/300x200?text=Quiz+Game+UI",
+          "https://via.placeholder.com/300x200?text=Score+Board"
+        ],
+        todo: [
+          "https://via.placeholder.com/300x200?text=ToDo+List+1",
+          "https://via.placeholder.com/300x200?text=Task+Marked"
+        ]
+      };
+
+      if (gallerySets[codeKey]) {
+        document.getElementById('gallery-img-1').src = gallerySets[codeKey][0];
+        document.getElementById('gallery-img-2').src = gallerySets[codeKey][1];
+      }
+
+      document.getElementById('modal').style.display = 'flex';
+        });
+      });
+    </script>
+    
+    </body>
+    
+    
+    
+</html>
