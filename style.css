@@ -1,53 +1,164 @@
-
 body {
   font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
   background: url('programming-code-coding-hacker-background-programming-code-icon-made-with-binary-code_127544-815-1.avif') no-repeat center center fixed;
   background-size: cover;
   color: white;
 }
+
+.navbar {
+  background: #007acc; /* Blue color for the navbar */
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.navbar a:hover {
+  background: #005f99; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 header {
   background: rgba(13, 17, 23, 0.85);
   padding: 40px;
   text-align: center;
 }
+
 header h1 {
   margin: 0;
 }
+
+.header-media {
+  perspective: 1000px; /* Create a perspective for the 3D effect */
+}
+
+.header-media img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.header-media img:hover {
+  transform: translateZ(20px) rotateY(5deg) rotateX(5deg); /* 3D effect on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
 section {
   padding: 40px 20px;
   max-width: 1000px;
   margin: auto;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+
 h2 {
-  border-bottom: 2px solid #58a6ff;
+  color: #00b300; /* Green color for headings */
+  border-bottom: 2px solid #58a6ff; /* Underline effect */
   padding-bottom: 10px;
 }
-.about-media img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  transition: transform 0.2s ease;
-}
-.about-media img:hover {
-  transform: scale(1.02);
-}
-ul {
-  list-style: square;
+
+blockquote {
+  border-left: 4px solid #00b300; /* Green border for blockquotes */
   padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  background: #333; /* Dark background for blockquotes */
+  border-radius: 5px;
+  transition: background 0.3s;
 }
+
+blockquote:hover {
+  background: #444; /* Darker background on hover */
+}
+
+.skill-set {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.skill {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  background: #3a3a3a; /* Darker background for skill cards */
+  border-radius: 10px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.skill:hover {
+  transform: scale(1.05);
+  background: #4a4a4a; /* Slightly lighter on hover */
+}
+
 footer {
   background: rgba(13, 17, 23, 0.85);
   text-align: center;
   padding: 20px;
 }
 
-.header-media img {
-  margin-top: 20px;
-  max-width: 300px;
+footer p {
+  margin: 0;
+}
+
+/* Animation for the blog articles */
+.blog-section article {
+  background: #3a3a3a; /* Dark background for blog articles */
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  padding: 15px;
+  margin: 10px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-section article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+}
+
+.blog-section a {
+  color: #007acc; /* Link color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.blog-section a:hover {
+  color: #00b300; /* Change link color on hover */
+}
+
+.about-media img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+.about-media img:hover {
+  transform: scale(1.02);
+}
+
+ul {
+  list-style: square;
+  padding-left: 20px;
 }
