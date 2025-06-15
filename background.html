@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    #home {
+      height: 100vh;
+      background-image: url('your-background-image.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+    }
+
+    #home .overlay {
+      background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="home">
+    <div class="overlay">
+      <div>
+        <h1>Welcome to My Website</h1>
+        <p>This section uses a custom background image with a dark overlay.</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
