@@ -239,14 +239,6 @@
 </style>
 </head>
 <body>
-
-<div class="page-layout">
-  <!-- Sidebar -->
-  <aside class="sidebar" role="complementary" aria-label="Sidebar navigation and profile">
-    <img src="shreelekh-horse.jpg" alt="Photo of Shreelekh Ingle" class="profile-pic" />
-    <h2>Shreelekh Ingle</h2>
-    <p class="role">14-year-old Developer</p>
-
     <nav aria-label="Primary navigation">
       <a href="#about" class="active">About</a>
       <a href="#skills">Skills</a>
@@ -264,7 +256,7 @@
       <a href="https://github.com/shreelekh" target="_blank" aria-label="GitHub profile">
         <i class="fab fa-github"></i>
       </a>
-      <a href="mailto:shreelekh@example.com" aria-label="Email">
+      <a href="mailto:shreelekh@org.in" aria-label="Email">
         <i class="fas fa-envelope"></i>
       </a>
       <a href="https://www.instagram.com/shreelekh.py" target="_blank" aria-label="Instagram profile">
@@ -335,15 +327,8 @@
     <section id="projects" class="projects-section">
       <h2>Projects</h2>
       <ul class="project-list">
-        <li><strong>Weather App</strong> — A real-time weather checker using OpenWeather API.</li>
-        <li><strong>Calculator</strong> — A functional calculator built with HTML, CSS, and JavaScript.</li>
-        <li><strong>Todo List</strong> — A task manager app with local storage.</li>
-        <li><strong>Portfolio Site</strong> — This very site! Built from scratch using HTML/CSS.</li>
-        <li><strong>Personal Blog</strong> — A blog platform where I share my thoughts and experiences in tech.</li>
-      </ul>
-    </section>
-
-    <section id="games" class="games-section" aria-label="Interactive Games Section">
+      </section>
+<section id="games" class="games-section" aria-label="Interactive Games Section">
       <h2>Let's Play Game</h2>
       <div class="game-tabs" role="tablist" aria-label="Game Tabs">
         <button class="game-tab active" role="tab" aria-selected="true" aria-controls="snake-game" id="tab-snake">Snake Game</button>
@@ -607,8 +592,7 @@
       cards.push(card);
     });
   }
-
-  function flipCard() {
+function flipCard() {
     if(lockBoard) return;
     if(this === firstCard) return;
     this.textContent = this.dataset.value;
