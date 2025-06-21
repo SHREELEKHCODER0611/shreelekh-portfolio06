@@ -162,3 +162,41 @@ ul {
   list-style: square;
   padding-left: 20px;
 }
+/* General styles for content blocks in all sections */
+.about-content, .skills-content, .testimonials-content, .projects-content, .hobbies-content, .achievements-content, .contact-content {
+  background: rgba(0, 0, 0, 0.6); /* Dark background for content blocks */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-content:hover, 
+.skills-content:hover, 
+.testimonials-content:hover, 
+.projects-content:hover, 
+.hobbies-content:hover, 
+.achievements-content:hover, 
+.contact-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+/* Specific styles for lists in sections */
+ul {
+  list-style: square;
+  padding-left: 20px;
+  color: #d1d5db; /* Light color for list items */
+}
+/* Additional styles for blockquotes */
+blockquote {
+  border-left: 4px solid #00b300; /* Green border for blockquotes */
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  background: #333; /* Dark background for blockquotes */
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+blockquote:hover {
+  background: #444; /* Darker background on hover */
+}
